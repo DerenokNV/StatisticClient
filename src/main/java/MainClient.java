@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 
 public class MainClient {
 
-  private static String NAME_URL = "http://localhost:8080/StatisticServices/api/person/add";
+  private static final String NAME_URL = "http://localhost:8080/StatisticServices/api/person/add";
 
 
   public static class MyFirstThread extends Thread {
@@ -32,7 +32,7 @@ public class MainClient {
     }
   }
 
-  public static void main( String[] args ) throws IOException {
+  public static void main( String[] args ) {
     System.out.println( "Yxxx" );
     //setPersonData( DataTest.getPerson1() );
 
@@ -62,7 +62,7 @@ public class MainClient {
 
   }
 
-  public static String setPersonData( PersonRequest person ) throws IOException{
+  public static void setPersonData( PersonRequest person ) throws IOException{
     HttpURLConnection connection = (HttpURLConnection) new URL( NAME_URL ).openConnection();
     connection.setRequestMethod("POST");
     connection.setRequestProperty("Content-Type", "application/json");
@@ -84,7 +84,5 @@ public class MainClient {
     else if(responseCode == 401){
       System.out.println("Wrong password.");
     }
-
-    return "";
   }
 }
